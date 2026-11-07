@@ -5,83 +5,80 @@ echo =========================================================================
 echo   BIOKURI // Publicador no GitHub Pages para MICHELI MAC INTIR (@macintir)
 echo =========================================================================
 echo.
-echo Olá! Este script irá publicar o portfólio diretamente na conta @macintir.
-echo.
-echo Certifique-se de que a conta aberta no Chrome seja: macintir
+echo Autor atual do Git:
+git config user.name
+git config user.email
 echo.
 echo Escolha uma das opções:
-echo  [1] Publicar o Portfólio em: https://macintir.github.io/ (Recomendado)
+echo  [1] Publicar atualizações em https://macintir.github.io/ (Git Push)
 echo  [2] Atualizar o Perfil Inicial do GitHub (Repositório macintir/macintir)
-echo  [3] Abrir no Chrome a página para convidar @lucasaosf como colaborador
-echo  [4] Abrir o Portfólio Localmente para testar antes de enviar
+echo  [3] Testar / Abrir o Portfólio Localmente no Navegador
+echo  [4] Alterar autor do commit (Lucas Aøsf ou Micheli Mac Intir)
 echo.
 set /p opt="Digite o número da opção desejada (1, 2, 3 ou 4): "
 
 cd /d "%~dp0"
 
 if "%opt%"=="3" (
-    echo.
-    echo Abrindo página de Colaboradores no repositório...
-    start "" "https://github.com/macintir/macintir.github.io/settings/access"
-    echo.
-    echo No Chrome:
-    echo 1. Clique no botão verde "Add people"
-    echo 2. Digite: lucasaosf
-    echo 3. Clique em "Add lucasaosf to this repository"
-    echo.
-    pause
+    start "" "%~dp0index.html"
     exit /b
 )
 
 if "%opt%"=="4" (
-    start "" "%~dp0index.html"
+    echo.
+    echo Escolha o autor:
+    echo  [L] Lucas Aøsf (lucasaosf@gmail.com)
+    echo  [M] Micheli Mac Intir (michelidinizmacintir@gmail.com)
+    set /p author_opt="Digite L ou M: "
+    if /i "%author_opt%"=="M" (
+        git config user.name "Micheli Mac Intir"
+        git config user.email "michelidinizmacintir@gmail.com"
+        echo Autor configurado como Micheli Mac Intir.
+    ) else (
+        git config user.name "Lucas Aøsf"
+        git config user.email "lucasaosf@gmail.com"
+        echo Autor configurado como Lucas Aøsf.
+    )
+    pause
     exit /b
 )
 
 if not exist ".git" (
     echo.
-    echo [1/4] Inicializando repositório Git local...
+    echo Inicializando repositório Git local...
     git init
     git branch -M main
 )
 
-echo [2/4] Configurando autor do commit como Micheli Mac Intir...
-git config user.name "Micheli Mac Intir"
-git config user.email "michelidinizmacintir@gmail.com"
-
-echo [3/4] Preparando arquivos e imagens para envio...
+echo.
+echo Preparando arquivos e imagens para envio...
 git add .
-git commit -m "feat: portfolio micheli mac intir - biokuri e supervisao ambiental" 2>nul
+set /p commit_msg="Digite a mensagem do commit (ou Enter para padrao): "
+if "%commit_msg%"=="" set commit_msg=feat: redesign bio-canopy interactivo, terminal console e bio-canvas vaga-lumes
+
+git commit -m "%commit_msg%"
 
 if "%opt%"=="1" (
     echo.
-    echo [4/4] Conectando ao repositório https://github.com/macintir/macintir.github.io ...
-    echo.
-    echo NOTA: Se ainda não tiver criado o repositório 'macintir.github.io' no GitHub,
-    echo crie-o como PÚBLICO (Public) acessando: https://github.com/new
-    echo.
+    echo Conectando ao repositório https://github.com/macintir/macintir.github.io ...
     git remote remove origin 2>nul
     git remote add origin https://github.com/macintir/macintir.github.io.git
-    echo Enviando arquivos...
+    echo Enviando arquivos via conta atual...
     git push -u origin main
     echo.
     echo =========================================================================
     echo   PUBLICAÇÃO CONCLUÍDA COM SUCESSO!
     echo =========================================================================
     echo.
-    echo O seu site estará disponível no ar em instantes em:
+    echo O site estará disponível em:
     echo 🌐 https://macintir.github.io/
-    echo.
-    echo Próximo passo: Convide o @lucasaosf como colaborador:
-    echo Acesse: https://github.com/macintir/macintir.github.io/settings/access
     echo.
     start "" "https://macintir.github.io/"
 )
 
 if "%opt%"=="2" (
     echo.
-    echo [4/4] Enviando README para o perfil https://github.com/macintir/macintir ...
-    echo.
+    echo Enviando README para o perfil https://github.com/macintir/macintir ...
     git remote remove origin 2>nul
     git remote add origin https://github.com/macintir/macintir.git
     git push -u origin main
