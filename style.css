@@ -1387,7 +1387,7 @@ a {
    ========================================================================== */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
@@ -1398,6 +1398,69 @@ a {
   overflow: hidden;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
+  background: var(--surface-alt);
+}
+
+/* Instagram Spotlight Card */
+.insta-banner {
+  margin-top: 48px;
+  background: linear-gradient(135deg, rgba(225, 48, 108, 0.08), rgba(196, 125, 59, 0.08));
+  border: 1px solid rgba(225, 48, 108, 0.2);
+  border-radius: var(--radius-md);
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+[data-theme="dark"] .insta-banner {
+  background: linear-gradient(135deg, rgba(225, 48, 108, 0.15), rgba(196, 125, 59, 0.15));
+}
+
+.insta-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.insta-big-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 6px 18px rgba(225, 48, 108, 0.35);
+  flex-shrink: 0;
+}
+
+.insta-banner-info h4 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+  color: var(--dark);
+}
+
+.insta-banner-info p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.btn-insta {
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.3);
+}
+
+.btn-insta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(220, 39, 67, 0.45);
+  color: #ffffff;
 }
 
 .gallery-item img {
@@ -1598,6 +1661,7 @@ a {
 .linkedin-channel .channel-icon { background: #e0e7ff; color: #4338ca; }
 .instagram-channel .channel-icon { background: #fce7f3; color: #db2777; }
 .lattes-channel .channel-icon { background: #fef3c7; color: #d97706; }
+.orcid-channel .channel-icon { background: #ecfccb; color: #65a30d; }
 .github-channel .channel-icon { background: #f3f4f6; color: #1f2937; }
 
 [data-theme="dark"] .whatsapp-channel .channel-icon { background: rgba(22, 163, 74, 0.2); }
@@ -1605,6 +1669,7 @@ a {
 [data-theme="dark"] .linkedin-channel .channel-icon { background: rgba(67, 56, 202, 0.2); }
 [data-theme="dark"] .instagram-channel .channel-icon { background: rgba(219, 39, 119, 0.2); }
 [data-theme="dark"] .lattes-channel .channel-icon { background: rgba(217, 119, 6, 0.2); }
+[data-theme="dark"] .orcid-channel .channel-icon { background: rgba(101, 163, 13, 0.25); color: #84cc16; }
 [data-theme="dark"] .github-channel .channel-icon { background: rgba(255, 255, 255, 0.15); color: #fff; }
 
 .channel-info {

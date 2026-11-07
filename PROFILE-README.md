@@ -7,6 +7,7 @@
 [![Website](https://img.shields.io/badge/Portfólio%20Online-macintir.github.io-215933?style=for-the-badge&logo=google-chrome&logoColor=white)](https://macintir.github.io/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Micheli%20Mac%20Intir-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/micheli-diniz-mac-intir-190160278/)
 [![Instagram](https://img.shields.io/badge/Instagram-@macintir-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/macintir)
+[![ORCID](https://img.shields.io/badge/ORCID-0009--0008--4054--6952-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0008-4054-6952)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-(12)%2098131--1815-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5512981311815)
 [![Lattes](https://img.shields.io/badge/Currículo-Lattes-004A80?style=for-the-badge&logo=curriculum&logoColor=white)](http://lattes.cnpq.br/8079558009399619)
 
